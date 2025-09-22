@@ -7,8 +7,8 @@ export default function Header() {
         <a href="/" className={styles.logo}>TravelEase</a>
         <ul className={styles.navLinks}>
           <li><a href="#destinations">Destinations</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          {/*<li><a href="#about">About</a></li>*/}
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
     </header>

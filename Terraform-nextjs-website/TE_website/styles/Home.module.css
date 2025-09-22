@@ -1,15 +1,18 @@
+/* Apply a subtle, modern gradient background */
 .container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
 }
 
 /* Header Styles */
 .header {
   width: 100%;
   padding: 1rem 2rem;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   position: fixed;
   top: 0;
   z-index: 1000;
@@ -23,12 +26,13 @@
 }
 .logo {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700; /* Bolder font for the logo */
 }
 .navLinks {
   list-style: none;
   display: flex;
   gap: 2rem;
+  font-weight: 600; /* Slightly bolder nav links */
 }
 
 /* Hero Section Styles */
@@ -38,16 +42,19 @@
   justify-content: center;
   text-align: center;
   height: 100vh;
-  background: url('/hero-background.jpg') no-repeat center center/cover; /* Add a background image to /public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
 }
 .heroContent {
   background: rgba(0, 0, 0, 0.5);
   padding: 2rem 4rem;
-  border-radius: 10px;
+  border-radius: 15px; /* More rounded corners */
 }
 .title {
   font-size: 3.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 .description {
@@ -58,15 +65,25 @@
   background: #0070f3;
   color: white;
   padding: 1rem 2rem;
-  border-radius: 5px;
+  border-radius: 50px; /* Fully rounded button */
   text-decoration: none;
   font-size: 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+.ctaButton:hover {
+  background: #005bb5;
 }
 
 /* Destinations Section */
 .destinations {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem; /* More spacing */
   text-align: center;
+}
+.destinations h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
 }
 .grid {
   display: flex;
@@ -76,27 +93,51 @@
   margin-top: 2rem;
 }
 .card {
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  width: 300px;
+  border: none; /* Remove border for a cleaner look */
+  border-radius: 15px; /* More rounded corners */
+  width: 320px;
   text-align: left;
-  transition: box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden; /* Ensures image corners are rounded */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 .card:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 .cardImage {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 .card h3, .card p {
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 .card h3 {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  font-weight: 700;
+}
+.card p {
+    margin-bottom: 1.5rem;
+}
+
+/* Contact Us Section */
+.contactSection {
+  text-align: center;
+  padding: 0 2rem 6rem;
+}
+.contactButton {
+  background: #28a745;
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+.contactButton:hover {
+    background: #218838;
 }
 
 /* Footer Styles */
