@@ -1,0 +1,109 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+/* Hero Section Styles */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background: url('/hero-background.jpg') no-repeat center center/cover; /* Add a background image to /public */
+  color: white;
+}
+.heroContent {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 4rem;
+  border-radius: 10px;
+}
+.title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+.description {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.ctaButton {
+  background: #0070f3;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* Destinations Section */
+.destinations {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.card {
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  width: 300px;
+  text-align: left;
+  transition: box-shadow 0.2s ease;
+}
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card h3, .card p {
+  padding: 0 1rem;
+}
+.card h3 {
+  margin-top: 1rem;
+}
+
+/* Footer Styles */
+.footer {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  background: #fafafa;
+  border-top: 1px solid #eaeaea;
+}
