@@ -1,0 +1,44 @@
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import { Poppins } from 'next/font/google'; // Import the font
+
+// Import components
+import Header from '../TE_website/components/Headerder';
+import Hero from '../../components/Hero';
+import Destinations from '../TE_website/components/Destinationsons';
+import Footer from '../TE_website/components/Footerter';
+
+// Configure the font
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+});
+
+export default function Home() {
+  return (
+    // Apply the font's class name to the main container
+    <div className={`${styles.container} ${poppins.className}`}>
+      <Head>
+        <title>TravelEase - Your Adventure Awaits</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Header />
+
+      <main>
+        <Hero />
+        <Destinations />
+        
+        <section className={styles.contactSection}>
+          <h2>Have Questions?</h2>
+          <p>Our travel experts are here to help you plan the perfect trip.</p>
+          <a href="/contact" className={styles.contactButton}>Contact Us</a>
+        </section>
+
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
