@@ -26,13 +26,28 @@
 }
 .logo {
   font-size: 1.5rem;
-  font-weight: 700; /* Bolder font for the logo */
+  font-weight: 700;
+  color: #007bff;       /* Sets the text color to sky blue */
+  text-decoration: none; /* Removes the underline */
 }
+
 .navLinks {
   list-style: none;
   display: flex;
   gap: 2rem;
-  font-weight: 600; /* Slightly bolder nav links */
+  font-weight: 600;
+}
+
+/* new styles for the links */
+.navLinks a {
+  text-decoration: none; /* Removes the underline */
+  color: #007bff;       /* Sets the text color to a nice sky blue */
+  transition: color 0.2s ease; /* Adds a smooth color transition on hover */
+}
+
+/* Add a hover effect*/
+.navLinks a:hover {
+  color: #0056b3; /* A slightly darker blue for the hover state */
 }
 
 /* Hero Section Styles */
@@ -135,6 +150,8 @@
   font-size: 1.2rem;
   font-weight: 600;
   transition: background-color 0.2s ease;
+  margin-top: 1.5rem;
+  display: inline-block;
 }
 .contactButton:hover {
     background: #218838;
