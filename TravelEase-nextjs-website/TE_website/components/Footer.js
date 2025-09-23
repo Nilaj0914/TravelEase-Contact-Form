@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <p>TravelEase project website, made with nextjs.</p>
+      <p>TravelEase website, made with nextjs.</p>
     </footer>
   );
 }

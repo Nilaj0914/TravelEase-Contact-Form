@@ -1,12 +1,16 @@
-/* Apply a subtle, modern gradient background */
+/* =================================
+   Base & Desktop Styles
+   ================================= */
+
 .container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  width: 100vw; /* Explicitly set the width to the viewport width */
+  overflow-x: hidden;
 }
 
-/* Header Styles */
 .header {
   width: 100%;
   padding: 1rem 2rem;
@@ -27,30 +31,23 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #007bff;       /* Sets the text color to sky blue */
-  text-decoration: none; /* Removes the underline */
+  color: #007bff;
+  text-decoration: none;
 }
-
 .navLinks {
   list-style: none;
   display: flex;
   gap: 2rem;
   font-weight: 600;
 }
-
-/* new styles for the links */
 .navLinks a {
-  text-decoration: none; /* Removes the underline */
-  color: #007bff;       /* Sets the text color to a nice sky blue */
-  transition: color 0.2s ease; /* Adds a smooth color transition on hover */
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.2s ease;
 }
-
-/* Add a hover effect*/
 .navLinks a:hover {
-  color: #0056b3; /* A slightly darker blue for the hover state */
+  color: #0056b3;
 }
-
-/* Hero Section Styles */
 .hero {
   display: flex;
   align-items: center;
@@ -65,7 +62,7 @@
 .heroContent {
   background: rgba(0, 0, 0, 0.5);
   padding: 2rem 4rem;
-  border-radius: 15px; /* More rounded corners */
+  border-radius: 15px;
 }
 .title {
   font-size: 3.5rem;
@@ -80,7 +77,7 @@
   background: #0070f3;
   color: white;
   padding: 1rem 2rem;
-  border-radius: 50px; /* Fully rounded button */
+  border-radius: 50px;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 600;
@@ -89,10 +86,8 @@
 .ctaButton:hover {
   background: #005bb5;
 }
-
-/* Destinations Section */
 .destinations {
-  padding: 6rem 2rem; /* More spacing */
+  padding: 6rem 2rem;
   text-align: center;
 }
 .destinations h2 {
@@ -108,12 +103,12 @@
   margin-top: 2rem;
 }
 .card {
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 15px; /* More rounded corners */
+  border: none;
+  border-radius: 15px;
   width: 320px;
   text-align: left;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden; /* Ensures image corners are rounded */
+  overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 .card:hover {
@@ -133,10 +128,8 @@
   font-weight: 700;
 }
 .card p {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
-
-/* Contact Us Section */
 .contactSection {
   text-align: center;
   padding: 0 2rem 6rem;
@@ -154,14 +147,118 @@
   display: inline-block;
 }
 .contactButton:hover {
-    background: #218838;
+  background: #218838;
 }
-
-/* Footer Styles */
 .footer {
   width: 100%;
   padding: 2rem;
   text-align: center;
   background: #fafafa;
   border-top: 1px solid #eaeaea;
+}
+
+/* =================================
+   Hamburger Menu Base Styles
+   ================================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2000; /* Ensure it's on top */
+}
+.hamburger div {
+  width: 2rem;
+  height: 0.25rem;
+  background: #007bff;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+.mobileMenu {
+  display: none;
+}
+
+/* =================================
+   Mobile Responsive Styles
+   ================================= */
+@media (max-width: 992px) {
+  .navLinks {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+    z-index: 1500;
+  }
+  .mobileMenuOpen {
+    transform: translateX(0);
+  }
+  .mobileMenu a {
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+  }
+  .heroContent {
+    padding: 2rem 1.5rem;
+    width: 90%;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .description {
+    font-size: 1.1rem;
+  }
+  .destinations {
+    padding: 4rem 1rem;
+  }
+  .destinations h2 {
+    font-size: 2rem;
+  }
+  .grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .card {
+    width: 90%;
+    max-width: 400px;
+  }
+  .contactSection {
+    padding: 0 1rem 4rem;
+  }
+  .contactSection h2 {
+    font-size: 1.8rem;
+  }
+  .footer {
+    /* Add some side padding so the text doesn't touch the screen edges */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .footer p {
+    word-break: break-word; /* forces long text to wrap */
+  }
 }
