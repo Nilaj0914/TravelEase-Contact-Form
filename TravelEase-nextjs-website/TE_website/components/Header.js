@@ -1,4 +1,4 @@
-// Add this at the very top. This is the critical fix.
+
 'use client'; 
 
 import { useState } from 'react';
