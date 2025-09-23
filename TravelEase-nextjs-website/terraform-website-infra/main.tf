@@ -1,6 +1,9 @@
 #s3 Bucket Resource
 resource "aws_s3_bucket" "website" {
   bucket = "travelease-nextjs-website"
+  
+  # force destroy deletes even non-empty buckets, be careful regarding data loss
+  force_destroy = true
 
   tags = {
     Name = "Portfolio Website"
