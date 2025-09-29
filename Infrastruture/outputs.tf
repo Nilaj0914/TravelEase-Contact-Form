@@ -1,7 +1,10 @@
 output "cloudfront_url" {
   value = aws_cloudfront_distribution.website_distribution.domain_name
 }
-output "website_endpoint" {
-  description = "The S3 static website endpoint."
-  value = aws_s3_bucket_website_configuration.website-policy.website_endpoint
+output "Distribution_ID" {
+  description = "CloudFront distribution ID."
+  value = aws_cloudfront_distribution.website_distribution.id
+}
+output "bucket_name"{
+  value = aws_s3_bucket.website.bucket
 }

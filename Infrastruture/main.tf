@@ -99,6 +99,11 @@ resource "aws_cloudfront_distribution" "website_distribution" {
     cached_methods = [ "GET", "HEAD" ]
     target_origin_id = "S3-website-bucket"
 
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.url_rewrite.arn
+    }
+
     forwarded_values {
       query_string = false
       cookies {
@@ -110,6 +115,13 @@ resource "aws_cloudfront_distribution" "website_distribution" {
     min_ttl = 0
     default_ttl = 3600
     max_ttl = 86400
+  }
+# Error response in case of 403 error
+  custom_error_response {
+    error_caching_min_ttl = 300
+    error_code            = 403 
+    response_code         = 200
+    response_page_path    = "/index.html" 
   }
 
   restrictions {
@@ -124,3 +136,15 @@ resource "aws_cloudfront_distribution" "website_distribution" {
 
   }
 }
+
+# Enabling Cloudfront funtion to rewrite URLs 
+resource "aws_cloudfront_function" "url_rewrite" {
+  name    = "travelease-url-rewrite-function"
+  runtime = "cloudfront-js-2.0"
+  comment = "Rewrites clean URLs to their .html equivalents"
+  publish = true
+  code = file("${path.module}/url_rewrite.js")
+}
+
+
+

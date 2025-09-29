@@ -59,24 +59,55 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus({ ...status, submitting: true, error: null }); // Start submitting, clear previous errors
 
-    // Client-side validation
+    // --- Start Validation ---
+
+    // 1. Required fields validation
     if (!formData.name || !formData.email || !formData.destination || !formData.startDate) {
-      setStatus({ ...status, error: 'Please fill out all required fields.' });
+      setStatus({ submitting: false, submitted: false, error: 'Please fill out all required fields.' });
       return;
     }
+
+    // 2. Email format validation
     if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      setStatus({ ...status, error: 'Please enter a valid email address.' });
+      setStatus({ submitting: false, submitted: false, error: 'Please enter a valid email address.' });
       return;
     }
-
-    // Validate phone number: only digits are allowed if the field is not empty
+    
+    // 3. Phone number format validation
     if (formData.phone && !/^\d+$/.test(formData.phone)) {
-      setStatus({ ...status, error: 'Phone number can only contain numbers.' });
+      setStatus({ submitting: false, submitted: false, error: 'Phone number can only contain numbers.' });
       return;
     }
 
-    setStatus({ submitting: true, submitted: false, error: null });
+    // 4. Travel dates validation
+    if (formData.startDate && formData.endDate) {
+        const departureDate = new Date(formData.startDate);
+        const returnDate = new Date(formData.endDate);
+        if (departureDate > returnDate) {
+            setStatus({ submitting: false, submitted: false, error: 'Your return date cannot be before your departure date.' });
+            return;
+        }
+    }
+
+    // 5. Destination validation using an external API
+    try {
+        const destinationQuery = encodeURIComponent(formData.destination);
+        // Using OpenStreetMap Nominatim API - free and no API key required for this use case.
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${destinationQuery}&format=json&limit=1`);
+        const data = await response.json();
+        if (data.length === 0) {
+            setStatus({ submitting: false, submitted: false, error: 'Could not find the specified destination. Please enter a valid destination.' });
+            return;
+        }
+    } catch (apiError) {
+        console.error("Destination validation API failed:", apiError);
+        
+    }
+    
+    // --- End Validation ---
+
 
     try {
       // IMPORTANT: Replace this with your actual API Gateway endpoint
@@ -211,7 +242,7 @@ export default function Contact() {
               {status.error && <p className="error-message">{status.error}</p>}
 
               <button type="submit" className="submit-button" disabled={status.submitting}>
-                {status.submitting ? 'Submitting...' : 'Get My Custom Quote'}
+                {status.submitting ? 'Verifying & Submitting...' : 'Get My Custom Quote'}
               </button>
             </form>
           )}
