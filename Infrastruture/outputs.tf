@@ -18,3 +18,8 @@ output "aws_dynamodb_table_arn" {
   value = aws_dynamodb_table.TE-contact-form.arn
   description = "ARN of the DynamoDB table created"
 }
+
+output "aws_ses_source_email_identity_arn" {
+  value = aws_ses_email_identity.source_email_identity.arn
+  description = "value of the source email identity ARN"
+}
