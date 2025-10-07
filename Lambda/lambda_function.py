@@ -57,7 +57,7 @@ def lambda_handler(event, context):
         form_data = json.loads(event.get('body', '{}'))
 
         #Server-side validation of form data
-        required_fields = ['name', 'email', 'phone', 'destination', 'startDate', 'endDate']
+        required_fields = ['name', 'email', 'destination', 'startDate', 'endDate']
         for field in required_fields:
             if not form_data.get(field):
                 return {

@@ -111,7 +111,7 @@ export default function Contact() {
 
     try {
       // IMPORTANT: Replace this with your actual API Gateway endpoint
-      const endpoint = 'https://YOUR_API_GATEWAY_ENDPOINT_URL/submit';
+      const endpoint = 'https://abcde.execute-api.ap-south-1.amazonaws.com/prod/submit'; //example endpoint
 
       const response = await fetch(endpoint, {
         method: 'POST',

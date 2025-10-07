@@ -9,8 +9,8 @@ resource "aws_iam_role" "contact_form_lambda_role" {
         {
             Action = "sts:AssumeRole"
             Effect = "Allow"
-            Principle ={
-                Service = "lambda.amazonaws.com"
+            Principal ={
+                "Service": "lambda.amazonaws.com"
             }
         }
     ]
@@ -54,8 +54,7 @@ resource "aws_iam_policy" "contact_form_lambda_policy" {
 }
 
 # Policy Attachment to role
-resource "aws_iam_policy_attachment" "contact_form_lambda_policy_attachment" {
-  name = "ContactForm-Lambda_Policy_Attachment"
-  roles = aws_iam_role.contact_form_lambda_role.name
+resource "aws_iam_role_policy_attachment" "contact_form_lambda_policy_attachment" {
+  role = aws_iam_role.contact_form_lambda_role.name
   policy_arn = aws_iam_policy.contact_form_lambda_policy.arn
   }

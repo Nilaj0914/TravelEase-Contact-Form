@@ -3,7 +3,7 @@
 data "archive_file" "lambda_function_zip" {
   type = "zip"
   source_dir = "${path.module}/../Lambda"
-  output_path = "${path.module}/..Lambda/lambda_function_payload.zip"
+  output_path = "${path.module}/../Lambda/lambda_function_payload.zip"
 }
 
 #lambda function resource

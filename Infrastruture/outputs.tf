@@ -23,3 +23,8 @@ output "aws_ses_source_email_identity_arn" {
   value = aws_ses_email_identity.source_email_identity.arn
   description = "value of the source email identity ARN"
 }
+
+output "api_gateway_invoke_url" {
+  description = "Invoke URL used by the frontend to call the API Gateway"
+  value = aws_api_gateway_stage.api-stage.invoke_url
+}
