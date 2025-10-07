@@ -1,4 +1,6 @@
 # IAM Roles and policies for the lambda function to put items into DynamoDB table and send emails using SES, as well as create log in cloudwatch
+data "aws_region" "current" {}
+data "aws_caller_identity" "current" {}
 
 resource "aws_iam_role" "contact_form_lambda_role" {
   name = "TravelEase-ContactForm-LambdaRole"
@@ -36,7 +38,7 @@ resource "aws_iam_policy" "contact_form_lambda_policy" {
             # permission: send emails from source identity using SES
             Effect = "Allow"
             Action = "ses:SendEmail"
-            Resource = aws_ses_email_identity.source_email_identity.arn
+            Resource = "arn:aws:ses:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:identity/*"
         },
         {
             # permission: allows lambda function to create logs in cloudwatch for debugging

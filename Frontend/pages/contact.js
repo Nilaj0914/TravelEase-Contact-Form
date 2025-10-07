@@ -111,7 +111,10 @@ export default function Contact() {
 
     try {
       // IMPORTANT: Replace this with your actual API Gateway endpoint
-      const endpoint = 'https://abcde.execute-api.ap-south-1.amazonaws.com/prod/submit'; //example endpoint
+      const endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT;
+      if(!endpoint){
+        throw new Error('API endpoint is not configured. Please contact the site administrator.');
+      }
 
       const response = await fetch(endpoint, {
         method: 'POST',

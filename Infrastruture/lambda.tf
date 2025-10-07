@@ -20,6 +20,7 @@ resource "aws_lambda_function" "lambda_function" {
   #handler and runtime
   handler = "lambda_function.lambda_handler"
   runtime = "python3.12"
+  timeout = 15
 
   #Enviroment Variables
   environment {

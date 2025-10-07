@@ -8,7 +8,7 @@ import urllib.parse
 
 # using boto3, initialize the ses and dynamodb clients
 ses_client = boto3.client('ses')
-dynamodb = boto3.client('dynamodb')
+dynamodb = boto3.resource('dynamodb')
 
 # get envroment variables from lambda function config file (lambda.tf)
 Table_Name = os.environ.get('Table_Name')
