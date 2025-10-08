@@ -14,8 +14,8 @@ export default function Header() {
 
         <ul className={styles.navLinks}>
           <li><a href="#destinations">Destinations</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          {/*<li><a href="#about">About</a></li>*/}
+          <li><a href="contact">Contact</a></li>
         </ul>
 
         <button

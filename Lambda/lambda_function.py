@@ -136,7 +136,7 @@ def lambda_handler(event, context):
             customer_summary_html = f"""
             <html><body>
                 <h2>Thank you for your inquiry, {form_data['name']}!</h2>
-                <p>We've received your request and our travel experts will be in touch shortly. Here is a summary of your submission:</p>
+                <p>We've received your request and our travel experts will be in touch shortly, keep the reference number provided handy as it will be required for your order processing later. Here is a summary of your submission:</p>
                 <div>
                     <p><strong>Reference ID:</strong> {submission_id}</p>
                     <p><strong>Destination:</strong> {form_data['destination']}</p>
@@ -146,7 +146,7 @@ def lambda_handler(event, context):
                 </div>
                 <p>Regards,<br/>The TravelEase Team</p>
             </body></html>"""
-        customer_summary_text = f"Hello {form_data['name']},\n\nThank you for your inquiry! \n\n We've received your request and our travel experts will be in touch shortly. Here is a summary of your submission. \n\n Your reference number is: {submission_id} \n\n Destination: {form_data['destination']} \n Departure Date: {form_data['startDate']} \n Return Date: {form_data['endDate']} \n Number of Travelers: {form_data.get('travelers', 'N/A')}"
+        customer_summary_text = f"Hello {form_data['name']},\n\nThank you for your inquiry! \n\n We've received your request and our travel experts will be in touch shortly, keep the reference number provided handy as it will be required for your order processing later. Here is a summary of your submission. \n\n Your reference number is: {submission_id} \n\n Destination: {form_data['destination']} \n Departure Date: {form_data['startDate']} \n Return Date: {form_data['endDate']} \n Number of Travelers: {form_data.get('travelers', 'N/A')}"
         
         # send the customer confirmation email using the SES client
         ses_client.send_email(

@@ -38,7 +38,7 @@ resource "aws_iam_policy" "contact_form_lambda_policy" {
             # permission: send emails from source identity using SES
             Effect = "Allow"
             Action = "ses:SendEmail"
-            Resource = "arn:aws:ses:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:identity/*"
+            Resource = "arn:aws:ses:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:identity/*"
         },
         {
             # permission: allows lambda function to create logs in cloudwatch for debugging

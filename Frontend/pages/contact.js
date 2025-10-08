@@ -110,7 +110,7 @@ export default function Contact() {
 
 
     try {
-      // IMPORTANT: Replace this with your actual API Gateway endpoint
+      // IMPORTANT: Paste your your actual API endpoint in the "env.local" file as "NEXT_PUBLIC_API_ENDPOINT"
       const endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT;
       if(!endpoint){
         throw new Error('API endpoint is not configured. Please contact the site administrator.');
