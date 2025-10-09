@@ -85,7 +85,7 @@ This project requires you to store your "from" and "to" email addresses securely
     -   Go to the Amazon SES console.
     -   Click **"Verified identities"** and then **"Create identity"**.
     -   Verify **both** email addresses you stored in Secrets Manager. You will need to click a confirmation link sent to each inbox. This is required to send emails while in the SES Sandbox.
-    - Please note: In this project, the email identities are created and managed using terraform and the resources are defined in the [ses.tf](Infrastruture/ses.tf) file, so every time we use `terraform destroy`, the email identities are also destroyed, hence requiring verification SES everytime `terraform apply` is used for resource creation.
+    - Please note: In this project, the email identities are created and managed using terraform and the resources are defined in the [ses.tf](Infrastruture/ses.tf) file, so every time we use `terraform destroy`, the email identities are also destroyed, hence requiring SES verification everytime `terraform apply` is used for resource creation.
 
 ### Step 1: Clone the git repo
 
