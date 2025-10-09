@@ -115,7 +115,7 @@ This project requires you to store your "from" and "to" email addresses securely
    ```
 ### Step 3: Deploy with Terraform
 
-1.  **Navigate back to the root of the `Infrastruture` directory :**
+1.  **Navigate back to the root of the [Infrastruture](Infrastructure) directory :**
     ```bash
     cd ../Infrastruture/
     ```
