@@ -21,6 +21,11 @@ This repository contains a complete, serverless web application built on AWS and
 ---
 
 ## Architecture & Information Flow
+**Architecture Diagram**
+
+![Architecture-Diagram](Frontend/public/architecture.png)
+
+**Information Flow**
 
 This application follows a decoupled, event-driven architecture. The flow of information is as follows:
 
