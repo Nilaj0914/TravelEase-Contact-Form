@@ -99,7 +99,7 @@ This project requires you to store your "from" and "to" email addresses securely
     ```bash
     npm install
     ```
-    -   Doing this will install all the required next.js dependencies
+    -   Doing this will install all the dependencies required by the next.js website
 2. **Export the static files**
     ```bash
     npm run build
