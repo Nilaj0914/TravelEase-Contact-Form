@@ -93,7 +93,7 @@ This project requires you to store your "from" and "to" email addresses securely
     ```bash
     git clone git@github.com:Nilaj0914/TravelEase-Contact-Form.git
     ```
-### Step 2: Export the Frontend static files
+### Step 2: Export the Frontend static files and install dependencies
 
 1.  **Navigate to the [Frontend](Frontend) directory and run:**
     ```bash
@@ -105,6 +105,14 @@ This project requires you to store your "from" and "to" email addresses securely
     npm run build
     ```
     - Doing this will build and export all the frontend static files in an ```out``` folder
+3. **Navigate to the [Lambda](Lambda) directory**
+   ```bash
+   cd ../Lambda
+   ```
+4. **Install Lambda function dependencies by running:**
+   ```bash
+   pip install -r requirements.txt --target .
+   ```
 ### Step 3: Deploy with Terraform
 
 1.  **Navigate back to the root of the `Infrastruture` directory :**
