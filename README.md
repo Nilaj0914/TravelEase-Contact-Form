@@ -49,10 +49,10 @@ This application follows a decoupled, event-driven architecture. The flow of inf
 Before you begin, ensure you have the following installed and configured:
 
 -   **An AWS Account:** With administrative permissions to create the necessary resources.
--   **AWS CLI:** [Configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) with your credentials.
--   **Terraform CLI:** [Installed](https://learn.hashicorp.com/tutorials/terraform/install-cli).
--   **Node.js and npm:** [Installed](https://nodejs.org/en/download/).
--   **Python and pip:** [Installed](https://www.python.org/downloads/).
+-   **AWS CLI** configured with your credentials.
+-   **Terraform CLI** 
+-   **Node.js and npm** 
+-   **Python and pip** 
 
 ---
 
@@ -99,7 +99,7 @@ This project requires you to store your "from" and "to" email addresses securely
     ```bash
     npm run build
     ```
-    - Doing this will build and export all the frontend staic files in an ```out``` folder
+    - Doing this will build and export all the frontend static files in an ```out``` folder
 ### Step 3: Deploy with Terraform
 
 1.  **Navigate back to the root of the `Infrastruture` directory :**
