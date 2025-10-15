@@ -1,4 +1,4 @@
-# TravelEase Contact Form
+# TravelEase Contact Form Handler
 
 This repository contains a complete, serverless web application built on AWS and is designed to be a secure, scalable, and cost-effective solution for handling contact form submissions. It is intended to handle customer enquiries for businesses to ensure clear communication between both parties of any business transaction. It features a modern frontend, a robust serverless backend, and is fully defined using Infrastructure as Code. In this project, the contact form is a travel enquiry form for a travel agency which had 4 requirements:
 
