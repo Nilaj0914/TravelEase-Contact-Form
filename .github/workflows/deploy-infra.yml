@@ -1,0 +1,30 @@
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - 'Infrastructure/**'
+
+permissions:
+    contents: read
+    id-token: write
+
+jobs:
+    deploy-infrastructure:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                role-to-assume: ${{ secrets.AWS_OICD_ROLE_ARN }}
+                role-session-name: GitHubActionsDeployInfra
+                aws-region: ap-south-1
+            
+            - name: Setup Terraform CLI
+              uses: Nilaj0914/Cloudpipe-CICD/ .github/workflows/Terraform-infra-deploy.yml@main
