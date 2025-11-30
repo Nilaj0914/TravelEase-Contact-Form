@@ -27,4 +27,4 @@ jobs:
                 aws-region: ap-south-1
             
             - name: Setup Terraform CLI
-              uses: Nilaj0914/Cloudpipe-CICD/ .github/workflows/Terraform-infra-deploy.yml@main
+              uses: Nilaj0914/Cloudpipe-CICD/.github/workflows/Terraform-infra-deploy.yml@main
