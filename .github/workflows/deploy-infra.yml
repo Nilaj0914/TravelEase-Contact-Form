@@ -8,6 +8,8 @@ on:
 jobs:
     deploy-infrastructure:
         uses: Nilaj0914/Cloudpipe-CICD/.github/workflows/Terraform-infra-deploy.yml@main
+        with: 
+            working-directory: ./Infrastructure
         permissions:
             contents: read
             id-token: write
