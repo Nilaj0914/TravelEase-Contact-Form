@@ -1,0 +1,15 @@
+on:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+    id-token: write
+
+jobs:
+    destroy-infrastructure:
+        uses: Nilaj0914/Cloudpipe-CICD/.github/workflows/Terraform-infra-teardown.yml@main
+        with:
+            confirm-destroy: "DESTROY"
+            working-directory: ./Infrastructure
+        secrets:
+            AWS_OIDC_ROLE_ARN: ${{ secrets.AWS_OIDC_ROLE_ARN}}
